@@ -1,10 +1,11 @@
 import './Expenses.css'
+import Card from './Card';
 import ExpenseItem from "./ExpenseItem"; // use expenseitem and pass app props to this
 
 function Expenses(props){
 // use passed in expenseitem
 return (
-    <div>
+    <Card className="expenses">
       <ExpenseItem 
         title={props.items[0].title} 
         amount={props.items[0].amount} 
@@ -25,7 +26,7 @@ return (
         amount={props.items[3].amount} 
         date={props.items[3].date}
       />
-    </div>
+    </Card>
 )
 }
 
