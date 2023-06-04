@@ -1,9 +1,9 @@
 import './ExpenseItem.css'
 import ExpenseDate from './ExpenseDate';
 
-function ExpenseItem(props){ //properties
+function ExpenseItem(props){ //properties of app.js
 
-    // pass date props to Expensedate
+    // render display of each row
     return (
         <div className='expense-item'>
             <div><ExpenseDate date={props.date}/></div> 
