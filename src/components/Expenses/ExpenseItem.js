@@ -1,6 +1,7 @@
 import './ExpenseItem.css'
 import ExpenseDate from './ExpenseDate';
-import Card from './Card.js'
+import Card from '../UI/Card.js'
+import React from 'react';
 
 function ExpenseItem(props){ //properties of app.js
     // render display of each row, use custom component card

@@ -1,6 +1,7 @@
 import './Expenses.css'
-import Card from './Card';
+import Card from '../UI/Card';
 import ExpenseItem from "./ExpenseItem"; // use expenseitem and pass app props to this
+import React from 'react';
 
 function Expenses(props){
 // use passed in expenseitem
