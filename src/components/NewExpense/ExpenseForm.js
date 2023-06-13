@@ -8,6 +8,7 @@ const ExpenseForm  = () => {
     //     enteredAmount: '',
     //     enteredDate: '',
     // });
+
     const [enteredTitle, setEnteredTitle] = useState('')// store state
     const [enteredAmount, setEnteredAmount] = useState('');
     const [enteredDate, setEnteredDate] = useState('');
