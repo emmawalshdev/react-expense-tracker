@@ -1,11 +1,20 @@
 import './Expenses.css'
 import Card from '../UI/Card';
 import ExpenseItem from "./ExpenseItem"; // use expenseitem and pass app props to this
-import React from 'react';
+import React, {useState} from 'react';
+import ExpenseFilter from './ExpenseFilter';
 
 const Expenses = (props) => {
   // use passed in expenseitem
+
+  const [selectedDate, setSelectedDate] = useState('2021');
+
+  const handleUpdatedDate = (newDate) => {
+    setSelectedDate(newDate);
+  }
   return (
+    <div>
+      <ExpenseFilter setDate={selectedDate} filterByDate={handleUpdatedDate}/>
       <Card className="expenses">
         <ExpenseItem 
           title={props.items[0].title} 
@@ -28,6 +37,7 @@ const Expenses = (props) => {
           date={props.items[3].date}
         />
       </Card>
+    </div>
   )
 }
 

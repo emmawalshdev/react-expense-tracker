@@ -40,7 +40,7 @@ const ExpenseForm  = (props) => {
         };
 
         props.onSaveExpenseData(expenseData); // execute function in newExpense & pass in expenseData
-        setEnteredTitle('');
+        setEnteredTitle(''); // reset form values
         setEnteredAmount('');
         setEnteredDate('');
         console.log(expenseData);

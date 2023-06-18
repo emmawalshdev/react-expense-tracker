@@ -7,8 +7,8 @@ const NewExpense = (props) => {
         const expenseData = {
             ...enteredExpenseData,
             id: Math.floor(Math.random() * 10000)
-        };
-        console.log(expenseData);
+        }; // update expenseData obj
+        console.log('expense data', expenseData);
         props.onAddExpense(expenseData);
     };
 
