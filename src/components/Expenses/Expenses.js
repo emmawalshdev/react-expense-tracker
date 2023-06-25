@@ -10,22 +10,29 @@ const Expenses = (props) => {
   const [selectedDate, setSelectedDate] = useState('2021');
 
   const handleUpdatedDate = (newDate) => {
-    setSelectedDate(newDate);
+    setSelectedDate(newDate); 
+    console.log(newDate);
   }
 
-  console.log(props + ' props');
+  const filteredExpenses = props.items.filter(expense => {
+    return expense.date.getFullYear().toString() === selectedDate;
+  });
 
   return (
     <div>
       <ExpenseFilter setDate={selectedDate} filterByDate={handleUpdatedDate}/>
       <Card className="expenses">
-        {props.items.map((expense)=>(
+
+        <p>expense item! map</p>
+
+        {filteredExpenses.map((expense)=>( // render each expense item
           <ExpenseItem
+            key={expense.id} // always add when mapping item lists
             title={expense.title}
             amount={expense.amount}
             date={expense.date}
           />
-        ))}
+        ))} 
       </Card>
     </div>
   )

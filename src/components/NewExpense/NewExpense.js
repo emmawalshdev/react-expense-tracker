@@ -9,7 +9,7 @@ const NewExpense = (props) => {
             id: Math.floor(Math.random() * 10000)
         }; // update expenseData obj
         console.log('expense data', expenseData);
-        props.onAddExpense(expenseData);
+        props.onAddExpense(expenseData);// call appjs funcS
     };
 
     // call function which is pased as a value

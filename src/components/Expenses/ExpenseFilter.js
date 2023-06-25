@@ -7,6 +7,7 @@ const ExpenseFilter = (props) => {
 
 
     const handleSelectChange = (event) => {
+        console.log('filter changed');
         props.filterByDate(event.target.value);
     }
     return (
