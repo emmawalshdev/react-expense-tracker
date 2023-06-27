@@ -18,21 +18,24 @@ const Expenses = (props) => {
     return expense.date.getFullYear().toString() === selectedDate;
   });
 
+  let expenseMessage = <p>No Expenses found.</p>
+
+  if (filteredExpenses.length > 0){
+    expenseMessage = filteredExpenses.map((expense)=>( // render each expense item
+      <ExpenseItem
+        key={expense.id} // always add when mapping item lists
+        title={expense.title}
+        amount={expense.amount}
+        date={expense.date}
+      />
+    ))
+  }
+
   return (
     <div>
       <ExpenseFilter setDate={selectedDate} filterByDate={handleUpdatedDate}/>
       <Card className="expenses">
-
-        <p>expense item! map</p>
-
-        {filteredExpenses.map((expense)=>( // render each expense item
-          <ExpenseItem
-            key={expense.id} // always add when mapping item lists
-            title={expense.title}
-            amount={expense.amount}
-            date={expense.date}
-          />
-        ))} 
+        {expenseMessage}
       </Card>
     </div>
   )
