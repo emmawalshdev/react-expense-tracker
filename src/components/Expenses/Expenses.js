@@ -3,6 +3,7 @@ import Card from '../UI/Card';
 import ExpenseItem from "./ExpenseItem"; // use expenseitem and pass app props to this
 import React, {useState} from 'react';
 import ExpenseFilter from './ExpenseFilter';
+import ExpenseList from './ExpenseList';
 
 const Expenses = (props) => {
   // use passed in expenseitem
@@ -18,24 +19,15 @@ const Expenses = (props) => {
     return expense.date.getFullYear().toString() === selectedDate;
   });
 
-  let expenseMessage = <p>No Expenses found.</p>
 
-  if (filteredExpenses.length > 0){
-    expenseMessage = filteredExpenses.map((expense)=>( // render each expense item
-      <ExpenseItem
-        key={expense.id} // always add when mapping item lists
-        title={expense.title}
-        amount={expense.amount}
-        date={expense.date}
-      />
-    ))
-  }
+
 
   return (
     <div>
-      <ExpenseFilter setDate={selectedDate} filterByDate={handleUpdatedDate}/>
       <Card className="expenses">
-        {expenseMessage}
+        
+      <ExpenseFilter setDate={selectedDate} filterByDate={handleUpdatedDate}/>
+      <ExpenseList items={filteredExpenses}/>
       </Card>
     </div>
   )
