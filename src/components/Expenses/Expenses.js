@@ -25,7 +25,6 @@ const Expenses = (props) => {
   return (
     <div>
       <Card className="expenses">
-        
       <ExpenseFilter setDate={selectedDate} filterByDate={handleUpdatedDate}/>
       <ExpenseList items={filteredExpenses}/>
       </Card>

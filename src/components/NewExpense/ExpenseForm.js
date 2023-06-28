@@ -3,15 +3,10 @@ import './ExpenseForm.css'
 
 const ExpenseForm  = (props) => {
 
-    // const [userInput, setUserInput] = useState({
-    //     enteredTitle: '',
-    //     enteredAmount: '',
-    //     enteredDate: '',
-    // });
-
     const [enteredTitle, setEnteredTitle] = useState('')// store state
     const [enteredAmount, setEnteredAmount] = useState('');
     const [enteredDate, setEnteredDate] = useState('');
+
 
     const titleChangeHandler = (event) => {
 
@@ -30,7 +25,7 @@ const ExpenseForm  = (props) => {
     }
 
     const submitButtonHandler = (event) => {
-        console.log('clicked')
+
         event.preventDefault();
 
         const expenseData = {
@@ -43,15 +38,19 @@ const ExpenseForm  = (props) => {
         setEnteredTitle(''); // reset form values
         setEnteredAmount('');
         setEnteredDate('');
-        console.log(expenseData);
+
+        if (expenseData.title !== ''){
+            props.onCancel();
+        }
     }
-    // const titleChangeHandler = (event) => {
-    //     setEnteredTitle(event.target.value);
-    // }
+
+    const stopEditing = () => {
+        props.onCancel();
+    }
 
 
     return <div>
-        <form onSubmit={submitButtonHandler}>
+         <form onSubmit={submitButtonHandler} id="ExpenseForm">
             <div className="new-expense__controls">
                 <div className="new-expense__control">
                     <label>Title</label>
@@ -69,6 +68,7 @@ const ExpenseForm  = (props) => {
             </div>
             <div className="new-expense__actions">
                 <button type="submit">Add Expense</button>
+                <button type="button" onClick={stopEditing}>Cancel</button>
             </div>
         </form>
     </div>
