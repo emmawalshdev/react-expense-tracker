@@ -4,6 +4,7 @@ import ExpenseItem from "./ExpenseItem"; // use expenseitem and pass app props t
 import React, {useState} from 'react';
 import ExpenseFilter from './ExpenseFilter';
 import ExpenseList from './ExpenseList';
+import ExpenseChart from './ExpensesChart';
 
 const Expenses = (props) => {
   // use passed in expenseitem
@@ -26,6 +27,7 @@ const Expenses = (props) => {
     <div>
       <Card className="expenses">
       <ExpenseFilter setDate={selectedDate} filterByDate={handleUpdatedDate}/>
+      <ExpenseChart expenses={filteredExpenses}/>
       <ExpenseList items={filteredExpenses}/>
       </Card>
     </div>
